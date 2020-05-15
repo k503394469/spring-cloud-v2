@@ -1,0 +1,4 @@
+# Project exclude paths
+/spring-cloud-parent/eureka-consumer/target/
+/spring-cloud-parent/eureka-provider/target/
+/spring-cloud-parent/eureka-server/target/
