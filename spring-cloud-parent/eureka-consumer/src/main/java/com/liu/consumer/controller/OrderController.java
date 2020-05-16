@@ -48,4 +48,19 @@ public class OrderController {
         //远程调用GoodsService中的方法
         return goods;
     }
+
+    /**
+     * 使用Ribbon简化restTemplate调用
+     * 1,声明RestTemp的Bean的时候添加@LoadBalanced
+     * 2,使用restTemplate发请求,定义url时,host:port替换为服务提供方的应用名
+     * @param id
+     * @return
+     */
+    @GetMapping("/goods2/{id}")
+    public Goods findGoodsById2(@PathVariable("id") int id){
+        String url="http://EUREKA-PROVIDER/goods/findOne/"+id;
+        Goods goods = restTemplate.getForObject(url, Goods.class);
+        //远程调用GoodsService中的方法
+        return goods;
+    }
 }
