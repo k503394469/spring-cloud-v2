@@ -34,7 +34,7 @@ public class OrderController {
          * 以后Provider可能是集群,所以获得List
          */
 
-        List<ServiceInstance> instances = discoveryClient.getInstances("EUREKA-PROVIDER");
+        List<ServiceInstance> instances = discoveryClient.getInstances("EUREKA-PROVIDER");//获取消息提供方应用名,从而获得ip
         if (instances.size()==0||instances==null){
             //没有数据
             return null;

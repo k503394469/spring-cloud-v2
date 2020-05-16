@@ -6,9 +6,12 @@ eureka:
     prefer-ip-address: true  #当前实例IP注册到EurekaServer,如果是false,就注册主机名↑↑↑↑↑↑↑↑↑↑↑↑
     ip-address: 127.0.0.1  #如果是公网,就写公网ip,当前实例的ip
     instance-id: ${eureka.instance.ip-address}:${spring.application.name}:${server.port}  #eureka 页面显示当前应用的方式
+    lease-renewal-interval-in-seconds: 3  #发送心跳间隔
+    lease-expiration-duration-in-seconds: 9  #如果9s没有发送心跳包,服务器会剔除该服务,默认90s
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka #访问EurekaServer的路径,Eureka服务地址,客户端使用改地址和Eureka进行通信
+#      defaultZone: http://localhost:8761/eureka #访问EurekaServer的路径,Eureka服务地址,客户端使用改地址和Eureka进行通信
+      defaultZone: http://eureka-server1:8761/eureka,http://eureka-server2:8762/eureka #集群访问
 spring:
   application:
     name: eureka-provider  #当前应用名称,需要使用该名称获取路径

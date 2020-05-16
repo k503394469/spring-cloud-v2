@@ -12,6 +12,8 @@
         <module>eureka-provider</module>
         <module>eureka-consumer</module>
         <module>eureka-server</module>
+        <module>eureka-server-1</module>
+        <module>eureka-server-2</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
