@@ -17,3 +17,15 @@ spring:
 EUREKA-PROVIDER:   #服务提供方应用名
   ribbon:
     NFloadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule    #策略类
+#设置Ribbon超时时间
+ribbon:
+  ConnectTimeout: 1000  #连接超时时间
+  ReadTimeout: 3000  #逻辑处理超时时间(服务方CRUD时间)
+#设置记录日志级别为Debug
+logging:
+  level:
+    com.liu: debug
+#开启feign的Hystrix支持,默认为false
+feign:
+  hystrix:
+    enabled: true
