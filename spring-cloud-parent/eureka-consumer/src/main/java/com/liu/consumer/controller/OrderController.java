@@ -1,6 +1,7 @@
 package com.liu.consumer.controller;
 
 import com.liu.consumer.domain.Goods;
+import com.liu.consumer.feign.GoodsFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -23,6 +24,8 @@ public class OrderController {
     private RestTemplate restTemplate;
     @Autowired
     private DiscoveryClient discoveryClient;
+    @Autowired
+    private GoodsFeignClient goodsFeignClient;//注入自己编写远程调用Feign接口
     @GetMapping("/goods/{id}")
     public Goods findGoodsById(@PathVariable("id") int id){
         /**
@@ -58,9 +61,14 @@ public class OrderController {
      */
     @GetMapping("/goods2/{id}")
     public Goods findGoodsById2(@PathVariable("id") int id){
-        String url="http://EUREKA-PROVIDER/goods/findOne/"+id;
-        Goods goods = restTemplate.getForObject(url, Goods.class);
-        //远程调用GoodsService中的方法
+//        String url="http://EUREKA-PROVIDER/goods/findOne/"+id;
+//        Goods goods = restTemplate.getForObject(url, Goods.class);
+//        //远程调用GoodsService中的方法
+//        return goods;
+        /**
+         * feign调用
+         */
+        Goods goods = goodsFeignClient.findGoodsById(id);
         return goods;
     }
 }
