@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/spring-cloud-parent/api-gateway-server/api-gateway-server.iml" filepath="$PROJECT_DIR$/spring-cloud-parent/api-gateway-server/api-gateway-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-cloud-parent/eureka-consumer/eureka-consumer.iml" filepath="$PROJECT_DIR$/spring-cloud-parent/eureka-consumer/eureka-consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-cloud-parent/eureka-provider/eureka-provider.iml" filepath="$PROJECT_DIR$/spring-cloud-parent/eureka-provider/eureka-provider.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-cloud-parent/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/spring-cloud-parent/eureka-server/eureka-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-cloud-parent/eureka-server-1/eureka-server-1.iml" filepath="$PROJECT_DIR$/spring-cloud-parent/eureka-server-1/eureka-server-1.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-cloud-parent/eureka-server-2/eureka-server-2.iml" filepath="$PROJECT_DIR$/spring-cloud-parent/eureka-server-2/eureka-server-2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-cloud-parent/hystrix-monitor/hystrix-monitor.iml" filepath="$PROJECT_DIR$/spring-cloud-parent/hystrix-monitor/hystrix-monitor.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-cloud-parent/spring-cloud-parent.iml" filepath="$PROJECT_DIR$/spring-cloud-parent/spring-cloud-parent.iml" />
     </modules>
   </component>

@@ -14,6 +14,8 @@
         <module>eureka-server</module>
         <module>eureka-server-1</module>
         <module>eureka-server-2</module>
+        <module>hystrix-monitor</module>
+        <module>api-gateway-server</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

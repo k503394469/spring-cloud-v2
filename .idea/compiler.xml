@@ -6,29 +6,35 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="eureka-server" />
+        <module name="api-gateway-server" />
+        <module name="eureka-consumer" />
         <module name="eureka-server-1" />
         <module name="eureka-provider" />
-        <module name="eureka-server" />
+        <module name="hystrix-monitor" />
         <module name="eureka-server-2" />
-        <module name="eureka-consumer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="api-gateway-server" target="1.8" />
       <module name="eureka-consumer" target="1.8" />
       <module name="eureka-provider" target="1.8" />
       <module name="eureka-server" target="1.8" />
       <module name="eureka-server-1" target="1.8" />
       <module name="eureka-server-2" target="1.8" />
+      <module name="hystrix-monitor" target="1.8" />
       <module name="spring-cloud-parent" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api-gateway-server" options="-parameters" />
       <module name="eureka-consumer" options="-parameters" />
       <module name="eureka-provider" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="eureka-server-1" options="-parameters" />
       <module name="eureka-server-2" options="-parameters" />
+      <module name="hystrix-monitor" options="-parameters" />
     </option>
   </component>
 </project>

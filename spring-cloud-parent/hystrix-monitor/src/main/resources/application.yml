@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: hystrix-monitor
+turbine:
+  combine-host-port: true
+  #服务所监控的app名称
+  app-config: eureka-consumer,eureka-provider
+  cluster-name-expression: "'default'"
+  aggregator:
+    cluster-config: default
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+server:
+  port: 8769
