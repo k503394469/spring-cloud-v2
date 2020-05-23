@@ -13,20 +13,27 @@ spring:
 #          uri: http://localhost:8000/  #转发到服务提供
 #          predicates:
 #            - Path=/goods/**  #如果满足这个条件,就会和uri进行拼接
+#        filters:   #key=value
 
         #↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓通过eureka里面的服务名实现动态路由
         - id: eureka-provider
           uri: lb://EUREKA-PROVIDER #转发到服务提供
           predicates:
-            - Path=/goods/**  #如果满足这个条件,就会和uri进行拼接
+           - Path=/goods/**  #如果满足这个条件,就会和uri进行拼接
+          filters:   #key=value
+            - AddRequestParameter=username,zhangsan  #过滤器添加用户名为张三
 
         - id: eureka-consumer
           uri: lb://EUREKA-CONSUMER  #转发到服务提供
           predicates:
-            - Path=/order/**  #如果满足这个条件,就会和uri进行拼接
+           - Path=/order/**  #如果满足这个条件,就会和uri进行拼接
+      discovery:
+        locator:
+          enabled: true  #启用微服务发现,请求路径前可以添加微服务名称
+          lower-case-service-id: true  #路径上名称为小写
 server:
   port: 80
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://localhost:8761/eureka,http://localhost:8762/eureka

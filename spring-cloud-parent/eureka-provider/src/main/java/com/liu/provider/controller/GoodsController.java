@@ -23,7 +23,8 @@ public class GoodsController {
     @HystrixCommand(fallbackMethod = "findOne_fallback",commandProperties = {
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "3000")//配置超时降级时间配置,默认1s(1000ms)
     })//如果此方法失败(降级),则调用findOne_fallback
-    public Goods findOne(@PathVariable int id){
+    public Goods findOne(@PathVariable int id,String username){
+        System.out.println(username);
 //        int i=3/0;
 //        Thread.sleep(3000);
         Goods goods = goodsService.findOneById(id);
@@ -40,7 +41,7 @@ public class GoodsController {
      * 降级方法:
      * 1,返回值和参数需要和原方法一致
      */
-    public Goods findOne_fallback(int id){
+    public Goods findOne_fallback(int id,String username){
         Goods goods = new Goods();
         goods.setTitle("findOne降级方法");
         return goods;
